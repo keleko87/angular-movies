@@ -1,0 +1,9 @@
+@import '../src/styles/colors.scss';
+@import '../src/styles/variables.scss';
+@import '../src/styles/mixins.scss';
+
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+}
