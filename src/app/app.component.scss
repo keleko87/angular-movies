@@ -9,15 +9,8 @@
   font-style: normal;
   height: 100vh;
 
-  &--display-flex {
-    display: flex;
-  }
-
-  &--justify-content-center {
-    justify-content: center;
-  }
-
-  &--align-items-center {
-    align-items: center;
+  &__router {
+    position: relative;
+    top: $nav-menu--height;
   }
 }

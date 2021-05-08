@@ -1,3 +1,6 @@
 {
-  "common": "Commons keys for all app"
+  "menu": {
+    "home": "Inicio",
+    "movies": "Películas"
+  }
 }

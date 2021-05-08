@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { routePath } from './core/constants/routes.constants';
+import { RoutePath } from './core/constants/routes.constants';
 
 const routes: Routes = [
   {
-    path: routePath.HOME,
+    path: RoutePath.HOME,
     loadChildren: () => import('./containers/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: '',
-    redirectTo: routePath.HOME,
+    redirectTo: RoutePath.HOME,
     pathMatch: 'full',
   },
 ];
