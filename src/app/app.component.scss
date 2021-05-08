@@ -1,0 +1,23 @@
+@import '../styles/colors.scss';
+@import '../styles/variables.scss';
+
+.mov-app {
+  background-color: $gray-800;
+  box-sizing: border-box;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  height: 100vh;
+
+  &--display-flex {
+    display: flex;
+  }
+
+  &--justify-content-center {
+    justify-content: center;
+  }
+
+  &--align-items-center {
+    align-items: center;
+  }
+}

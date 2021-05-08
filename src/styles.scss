@@ -3,7 +3,38 @@
 @import '../src/styles/mixins.scss';
 
 body {
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  font-size: 16px;
-  font-style: normal;
+  margin: 0;
+
+  h1 {
+    color: $gray-200;
+  }
+
+  h2 {
+    color: $mandarine;
+  }
+
+  h5,
+  p {
+    color: $gray-400;
+  }
+
+  h3,
+  h4,
+  h6 {
+    color: $white;
+  }
+
+  .mov {
+    &--display-flex {
+      display: flex;
+    }
+
+    &--justify-content-center {
+      justify-content: center;
+    }
+
+    &--align-items-center {
+      align-items: center;
+    }
+  }
 }
