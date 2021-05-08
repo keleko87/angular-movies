@@ -1,0 +1,24 @@
+<div class="mov-nav-menu">
+  <div class="mov-nav-menu__header"></div>
+  <input type="checkbox" id="openSidebarMenu" />
+
+  <label for="openSidebarMenu" class="mov-nav-menu__sidebar-icon">
+    <div class="mov-nav-menu__spinner mov-nav-menu--diagonal-part-1"></div>
+    <div class="mov-nav-menu__spinner mov-nav-menu--horizontal"></div>
+    <div class="mov-nav-menu__spinner mov-nav-menu--diagonal-part-2"></div>
+  </label>
+
+  <div id="sidebarMenu">
+    <ul *ngIf="config?.items" class="mov-nav-menu__sidebar-inner">
+      <li *ngFor="let item of config.items">
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="mov-nav-menu__link--active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

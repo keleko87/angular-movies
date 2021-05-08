@@ -1,0 +1,116 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/variables.scss';
+
+.mov-nav-menu {
+  &__header {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    background-color: $black;
+    position: fixed;
+    height: $nav-menu--height;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  &__sidebar-inner {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid $gray-800;
+
+    li {
+      font-weight: bold;
+      padding: 20px;
+      list-style: none;
+      border-bottom: 1px solid $gray-800;
+    }
+  }
+
+  &__sidebar-icon {
+    transition: all 0.3s;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 22px;
+    left: 15px;
+    height: 22px;
+    width: 22px;
+  }
+
+  #sidebarMenu {
+    background-color: $gray-600;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    margin-top: $nav-menu--height;
+    transform: translateX(-250px);
+    transition: transform 250ms ease-in-out;
+  }
+
+  &__link {
+    &--active {
+      color: $gray-600;
+    }
+  }
+
+  &__spinner {
+    transition: all 0.3s;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: $white;
+  }
+
+  &--horizontal {
+    transition: all 0.3s;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+  }
+
+  &--diagonal-part-1 {
+    position: relative;
+    transition: all 0.3s;
+    float: left;
+  }
+
+  &--diagonal-part-2 {
+    transition: all 0.3s;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+  }
+
+  input[type='checkbox'] {
+    transition: all 0.3s;
+    display: none;
+
+    &:checked {
+      & ~ #sidebarMenu {
+        transform: translateX(0);
+      }
+
+      & ~ .mov-nav-menu__sidebar-icon {
+        & > .mov-nav-menu--horizontal {
+          transition: all 0.3s;
+          opacity: 0;
+        }
+        & > .mov-nav-menu--diagonal-part-1 {
+          transition: all 0.3s;
+          transform: rotate(135deg);
+          margin-top: 8px;
+        }
+        & > .mov-nav-menu--diagonal-part-2 {
+          transition: all 0.3s;
+          transform: rotate(-135deg);
+          margin-top: -9px;
+        }
+      }
+    }
+  }
+}
