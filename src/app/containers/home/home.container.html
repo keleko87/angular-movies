@@ -1,5 +1,7 @@
 <div class="mov-home">
   <div class="mov--display-flex mov--justify-content-center mov--align-items-center">
-    <h1 class="mov--display-flex">Home view</h1>
+    <ng-container *transloco="let t">
+      <h1>{{ t('home.title') }}</h1>
+    </ng-container>
   </div>
 </div>
