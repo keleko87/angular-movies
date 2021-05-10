@@ -2,6 +2,8 @@
 @import '../src/styles/variables.scss';
 @import '../src/styles/mixins.scss';
 
+@import '~ngx-toastr/toastr';
+
 body {
   margin: 0;
   padding: 0;
