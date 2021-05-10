@@ -1,5 +1,11 @@
 <div class="mov-app">
-  <h1>Movies app works !!!</h1>
-</div>
+  <ng-container *transloco="let t">
+    <div class="mov-app__header">
+      <app-nav-menu [config]="menuConfig"> </app-nav-menu>
+    </div>
 
-<router-outlet></router-outlet>
+    <div class="mov-app__router">
+      <router-outlet></router-outlet>
+    </div>
+  </ng-container>
+</div>

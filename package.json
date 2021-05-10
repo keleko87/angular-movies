@@ -60,7 +60,7 @@
     "typescript": "~4.1.5"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,html}": [
+    "src/**/*.{ts,html}": [
       "eslint . --fix",
       "git add"
     ],
@@ -71,7 +71,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && lint-staged"
+      "pre-commit": "pretty-quick --staged"
     }
   }
 }
