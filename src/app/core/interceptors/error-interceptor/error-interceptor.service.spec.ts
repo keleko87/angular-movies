@@ -2,35 +2,40 @@ import {
   HttpErrorResponse,
   HttpHeaders,
   HttpResponse,
+  HttpResponseBase,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { getTestBed, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { IndividualConfig, ToastrModule, ToastrService } from 'ngx-toastr';
 
-import { LoaderService } from '../../services/loader/loader.service';
-import { LoaderInterceptorService } from './loader-interceptor.service';
 import { ApiMockService, BASE_PATH } from 'tests/mocks/api-mock.service';
+import { ErrorInterceptorService } from './error-interceptor.service';
 
-describe('LoaderInterceptorService', () => {
+const toastrService = {
+  success: (message?: string, title?: string, override?: Partial<IndividualConfig>) => {},
+  error: (message?: string, title?: string, override?: Partial<IndividualConfig>) => {},
+};
+
+describe('ErrorInterceptorService', () => {
   let injector: TestBed;
   let mockService: ApiMockService;
-  let loaderService: LoaderService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, ToastrModule.forRoot()],
       providers: [
         {
           provide: HTTP_INTERCEPTORS,
-          useClass: LoaderInterceptorService,
+          useClass: ErrorInterceptorService,
           multi: true,
         },
+        { provide: ToastrService, useValue: toastrService },
       ],
     });
 
     injector = getTestBed();
-    loaderService = injector.inject(LoaderService);
     mockService = injector.inject(ApiMockService);
     httpMock = injector.inject(HttpTestingController);
   });
@@ -39,30 +44,15 @@ describe('LoaderInterceptorService', () => {
     httpMock.verify();
   });
 
-  it('when no error, then subscribe returns the event', () => {
-    mockService.getPosts().subscribe(
-      (res) => expect(res).toBeTruthy(),
-      (error: HttpErrorResponse) => console.log(error)
-    );
+  it('when error, then show toastr error', () => {
+    const spy = spyOn(toastrService, 'error').and.callThrough();
 
-    const httpReq = httpMock.expectOne(`${BASE_PATH}/posts`);
-
-    const expectedResponse = new HttpResponse<string>({
-      status: 200,
-      statusText: 'OK',
-      body: '',
-      headers: {} as HttpHeaders,
-    });
-
-    httpReq.flush(expectedResponse);
-
-    expect(loaderService.isLoading).toBeTruthy();
-  });
-
-  it('when error, then subscribe returns error', () => {
     mockService.getPosts().subscribe(
       (res) => console.log(res),
-      (error: HttpErrorResponse) => expect(error).toBeTruthy()
+      (error: HttpErrorResponse) => {
+        expect(error).toBeTruthy();
+        expect(spy).toHaveBeenCalled();
+      }
     );
 
     const httpReq = httpMock.expectOne(`${BASE_PATH}/posts`);
