@@ -24,7 +24,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.add(
       this.translateService.selectTranslateObject('menu').subscribe((items: Translation) => {
-        debugger;
         this.menuConfig.items = this.navMenuService.setNavMenu(items);
       })
     );
