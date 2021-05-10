@@ -6,7 +6,7 @@ import { Movie } from '../../models/movies.model';
 @Injectable({
   providedIn: 'root',
 })
-export class InstrumentsApiService {
+export class MoviesApiService {
   readonly API_MOVIE_PATH = '/api/movies';
 
   constructor(private http: HttpClient) {}
