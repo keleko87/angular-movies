@@ -12,7 +12,8 @@
     <ul *ngIf="config?.items" class="mov-nav-menu__sidebar-inner">
       <li *ngFor="let item of config.items">
         <a
-          [routerLink]="item.path"
+          (click)="navMenuService.navigateTo(item.path)"
+          routerLink="{{ item.path }}"
           routerLinkActive="mov-nav-menu__link--active"
           [routerLinkActiveOptions]="{ exact: true }"
         >

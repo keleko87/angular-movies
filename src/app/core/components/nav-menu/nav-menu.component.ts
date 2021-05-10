@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NavMenuService } from '../../services/nav-menu.service';
 import { NavMenu } from './nav-menu.model';
 
 @Component({
@@ -6,10 +7,8 @@ import { NavMenu } from './nav-menu.model';
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.scss'],
 })
-export class NavMenuComponent implements OnInit {
+export class NavMenuComponent {
   @Input() config: NavMenu;
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(public navMenuService: NavMenuService) {}
 }
