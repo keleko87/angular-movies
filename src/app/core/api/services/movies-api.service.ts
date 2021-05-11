@@ -20,15 +20,6 @@ export class MoviesApiService {
   }
 
   /**
-   *
-   * @param id
-   * @returns Movie
-   */
-  public findExpedientById(id: number): Observable<Movie> {
-    return this.http.get<Movie>(`${this.API_MOVIE_PATH}/${id}`);
-  }
-
-  /**
    * Create New movie
    *
    * @param body
@@ -53,7 +44,7 @@ export class MoviesApiService {
    * @param id
    * @returns number: ID of movie deleted
    */
-  public deleteMovie(id: number): Observable<number> {
-    return this.http.delete<number>(`${this.API_MOVIE_PATH}/${id}`);
+  public deleteMovie(id: number): Observable<string> {
+    return this.http.delete<string>(`${this.API_MOVIE_PATH}/${id}`);
   }
 }

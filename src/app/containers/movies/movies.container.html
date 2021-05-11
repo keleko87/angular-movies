@@ -4,4 +4,6 @@
       <h1>{{ t('movies.title') }}</h1>
     </ng-container>
   </div>
+
+  <div *ngIf="movies$ | async as movies">{{ movies | json }}</div>
 </div>
