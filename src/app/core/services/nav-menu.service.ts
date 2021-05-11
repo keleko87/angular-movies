@@ -17,7 +17,7 @@ export class NavMenuService {
     });
   }
 
-  navigateTo(path) {
+  navigateTo(path: string): void {
     this.router.navigate([path]);
   }
 }

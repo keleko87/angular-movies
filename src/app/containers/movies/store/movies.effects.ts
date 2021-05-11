@@ -59,7 +59,7 @@ export class MoviesEffects {
   // Delete movie
   requestDeleteMovie$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(ActionTypes.REQUEST_UPDATE_MOVIE),
+      ofType(ActionTypes.REQUEST_DELETE_MOVIE),
       exhaustMap((action: { payload }) =>
         this.api.deleteMovie(action.payload).pipe(
           map((res: string) => deleteMovieSuccess({ payload: res })),
