@@ -10,13 +10,14 @@ import {
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoaderComponent } from './core/components/loader/loader.component';
 import { CoreModule } from './core/core.module';
 import { environment } from 'src/environments/environment';
 import { TranslateLoaderService } from './core/services/translate-loader.service';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoaderComponent],
   providers: [
     {
       provide: TRANSLOCO_CONFIG,
