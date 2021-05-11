@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { share } from 'rxjs/operators';
+
 import { Movie } from '../../models/movies.model';
 
 @Injectable({
@@ -16,7 +18,7 @@ export class MoviesApiService {
    * @returns Movie[]
    */
   public getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(`${this.API_MOVIE_PATH}`);
+    return this.http.get<Movie[]>(`${this.API_MOVIE_PATH}`).pipe(share());
   }
 
   /**
