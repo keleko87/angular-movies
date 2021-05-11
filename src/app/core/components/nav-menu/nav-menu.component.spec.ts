@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NavMenuService } from '../../services/nav-menu.service';
 
 import { NavMenuComponent } from './nav-menu.component';
 
@@ -9,6 +10,7 @@ describe('NavMenuComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NavMenuComponent],
+      providers: [{ provide: NavMenuService, useValue: {} }],
     }).compileComponents();
   });
 
