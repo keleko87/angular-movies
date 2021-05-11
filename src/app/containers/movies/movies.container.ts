@@ -10,6 +10,7 @@ import { selectMoviesList } from './store/movies.selectors';
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.container.html',
+  styleUrls: ['./movies.container.scss'],
 })
 export class MoviesContainer {
   movies$: Observable<Movie[]> = this.store.select(selectMoviesList).pipe(

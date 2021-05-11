@@ -5,5 +5,10 @@
     </ng-container>
   </div>
 
-  <div *ngIf="movies$ | async as movies">{{ movies | json }}</div>
+  <div *ngIf="movies$ | async as movies" class="mov-movies__list">
+    <div *ngFor="let movie of movies">
+      <app-card [title]="movie.title" [image]="movie.poster" [footerItems]="movie.genre">
+      </app-card>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,18 @@
+<div class="mov-card">
+  <div class="mov-card__header">
+    <h4 class="mov-card__name mov-card__text--overflow" [title]="title">
+      {{ title }}
+    </h4>
+  </div>
+  <div class="mov-card__image">
+    <img *ngIf="image; else defaultImg" [src]="image" alt="image" />
+    <ng-template #defaultImg>
+      <img src="../../../../assets/img/default-image-card.png" alt="default image" />
+    </ng-template>
+  </div>
+  <div class="mov-card__footer">
+    <small *ngFor="let item of footerItems" class="mov-card__item">
+      {{ item }}
+    </small>
+  </div>
+</div>

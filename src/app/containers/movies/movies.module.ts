@@ -5,12 +5,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco';
 
 import { MoviesContainer } from './movies.container';
+import { CardComponent } from 'src/app/shared/components/card/card.component';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesEffects } from './store/movies.effects';
 import { reducer, movieKey } from './store/movies.reducer';
 
 @NgModule({
-  declarations: [MoviesContainer],
+  declarations: [MoviesContainer, CardComponent],
   imports: [
     CommonModule,
     MoviesRoutingModule,
