@@ -1,0 +1,15 @@
+{
+  "pageTitle": "Nueva película",
+  "form": {
+    "title": "Título",
+    "poster": "Póster (url)",
+    "genre": "Géneros",
+    "actors": "Actores",
+    "year": "Año",
+    "duration": "Duración",
+    "imdbRating": "Puntuación"
+  },
+  "message": {
+    "movieCreatedSuccess": "Película creada correctamente"
+  }
+}

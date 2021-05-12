@@ -1,7 +1,50 @@
 <div class="mov-movie-new">
   <ng-container *transloco="let t">
     <div class="mov--display-flex mov--justify-content-center mov--align-items-center">
-      <h1>{{ t('movie-new.page-title') }}</h1>
+      <h1>{{ t('movieNew.pageTitle') }}</h1>
     </div>
+
+    <form [formGroup]="form">
+      <div>
+        <label for="title" class="mov__label">{{ t('movieNew.form.title') }} *</label>
+        <input pInputText type="text" formControlName="title" />
+      </div>
+
+      <div>
+        <label for="poster" class="mov__label">{{ t('movieNew.form.poster') }}</label>
+        <input pInputText type="text" formControlName="poster" />
+      </div>
+
+      <div>
+        <label for="genre" class="mov__label">{{ t('movieNew.form.genre') }} *</label>
+        <input pInputText type="text" formControlName="genre" />
+      </div>
+
+      <div>
+        <label for="actors" class="mov__label">{{ t('movieNew.form.actors') }} *</label>
+        <input pInputText type="text" formControlName="actors" />
+      </div>
+
+      <div>
+        <label for="year" class="mov__label">{{ t('movieNew.form.year') }} *</label>
+        <input pInputText type="text" formControlName="year" />
+      </div>
+
+      <div>
+        <label for="duration" class="mov__label">{{ t('movieNew.form.duration') }} *</label>
+        <input pInputText type="text" formControlName="duration" />
+      </div>
+
+      <div>
+        <label for="imdbRating" class="mov__label">{{ t('movieNew.form.imdbRating') }}</label>
+        <input pInputText type="text" formControlName="imdbRating" />
+      </div>
+
+      <div class="mov-movie-new__submit mov--display-flex mov--justify-content-center">
+        <div>
+          <button type="button" class="mov__button" (click)="submitForm()">{{ t('submit')}}</button>
+        </div>
+      </div>
+    </form>
   </ng-container>
 </div>
