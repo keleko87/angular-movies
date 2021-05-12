@@ -60,17 +60,12 @@ body {
 
     &__button {
       background-color: $mandarine;
-      border: 2px solid $white;
-      color: $white;
+      border: 2px solid $mandarine;
+      color: $black;
       border-radius: 30px;
       font-size: 1.5rem;
       padding: 12px 15px;
       cursor: pointer;
-
-      &:hover {
-        color: $gray-200;
-        border-color: $gray-200;
-      }
 
       &--edit {
         background-color: $green;

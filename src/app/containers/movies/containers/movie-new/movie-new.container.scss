@@ -1,7 +1,31 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/variables.scss';
+
 .mov-movie-new {
+  padding: 2rem 0 4rem;
   margin: 0 3rem;
+  max-width: $media-lg;
+
+  @media (min-width: #{$media-lg}) {
+    margin: 0 auto;
+  }
+
+  &__form {
+    background-color: $gray-600;
+    border: 1px solid $gray-800;
+    padding: 2rem;
+  }
+
+  &__form-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  &__field {
+    margin: 0.5rem;
+  }
 
   &__submit {
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
 }
