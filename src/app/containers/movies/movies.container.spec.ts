@@ -1,13 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslocoModule } from '@ngneat/transloco';
 import { Store, StoreModule } from '@ngrx/store';
+import { MockStore } from 'tests/mocks/store-mock';
 import { MoviesContainer } from './movies.container';
 import { reducer, movieKey } from './store/movies.reducer';
-
-export class mockStore {
-  select = jasmine.createSpy('select');
-  dispatch = jasmine.createSpy('dispatch');
-}
 
 describe('MoviesContainer', () => {
   let component: MoviesContainer;
@@ -21,7 +17,7 @@ describe('MoviesContainer', () => {
         StoreModule.forRoot({}),
         StoreModule.forFeature(movieKey, reducer),
       ],
-      providers: [{ provide: Store, useClass: mockStore }],
+      providers: [{ provide: Store, useClass: MockStore }],
     }).compileComponents();
   });
 
