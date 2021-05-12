@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
-import { MultiSelectModule } from 'primeng/multiselect';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 import { MovieNewRoutingModule } from './movie-new-routing.module';
 import { MovieNewContainer } from './movie-new.container';
@@ -18,6 +19,7 @@ import { MovieNewContainer } from './movie-new.container';
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
+    InputNumberModule,
     MultiSelectModule,
   ],
   providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'movieNew' }],

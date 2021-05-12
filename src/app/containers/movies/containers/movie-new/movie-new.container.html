@@ -12,32 +12,48 @@
 
       <div>
         <label for="poster" class="mov__label">{{ t('movieNew.form.poster') }}</label>
-        <input pInputText type="text" formControlName="poster" />
+        <input pInputText type="url" formControlName="poster" />
       </div>
 
       <div>
         <label for="genre" class="mov__label">{{ t('movieNew.form.genre') }} *</label>
-        <input pInputText type="text" formControlName="genre" />
+        <p-multiSelect display="chip" [options]="genres" formControlName="genre"> </p-multiSelect>
       </div>
 
       <div>
         <label for="actors" class="mov__label">{{ t('movieNew.form.actors') }} *</label>
-        <input pInputText type="text" formControlName="actors" />
+        <p-multiSelect display="chip" [options]="genres" formControlName="actors"> </p-multiSelect>
       </div>
 
       <div>
         <label for="year" class="mov__label">{{ t('movieNew.form.year') }} *</label>
-        <input pInputText type="text" formControlName="year" />
+        <p-inputNumber
+          [useGrouping]="false"
+          [maxlength]="movieFormField.YEAR_MAXLENGTH"
+          formControlName="year"
+        >
+        </p-inputNumber>
       </div>
 
       <div>
         <label for="duration" class="mov__label">{{ t('movieNew.form.duration') }} *</label>
-        <input pInputText type="text" formControlName="duration" />
+        <p-inputNumber
+          [useGrouping]="false"
+          [maxlength]="movieFormField.DURATION_MAXLENTH"
+          formControlName="duration"
+        >
+        </p-inputNumber>
       </div>
 
       <div>
         <label for="imdbRating" class="mov__label">{{ t('movieNew.form.imdbRating') }}</label>
-        <input pInputText type="text" formControlName="imdbRating" />
+        <p-inputNumber
+          mode="decimal"
+          [minFractionDigits]="movieFormField.MIN_FRACTION_DIGITS"
+          [maxlength]="movieFormField.RATING_MAXLENGTH"
+          formControlName="imdbRating"
+        >
+        </p-inputNumber>
       </div>
 
       <div class="mov-movie-new__submit mov--display-flex mov--justify-content-center">

@@ -6,9 +6,11 @@ import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
 import { ActionTypes, requestCreateMovie } from 'src/app/containers/movies/store/movies.actions';
-import { Movie } from 'src/app/core/models/movies.model';
+import { Movie, MovieGenre } from 'src/app/core/models/movies.model';
 import { FormUtilsService } from 'src/app/core/utils/form-utils.service';
 import { Translation, TranslocoService } from '@ngneat/transloco';
+import { ValidateURL } from 'src/app/core/validators/url.validator';
+import { Genres, MovieFormField } from 'src/app/core/constants/ movies.constants';
 
 @Component({
   selector: 'app-movie-new',
@@ -18,6 +20,8 @@ import { Translation, TranslocoService } from '@ngneat/transloco';
 export class MovieNewContainer implements OnInit, OnDestroy {
   form: FormGroup;
   translations: Translation;
+  genres: MovieGenre[] = Genres;
+  movieFormField = MovieFormField;
 
   private subscriptions: Subscription = new Subscription();
 
@@ -25,9 +29,9 @@ export class MovieNewContainer implements OnInit, OnDestroy {
     private store: Store,
     private actions$: Actions,
     private fb: FormBuilder,
-    private formUtilsService: FormUtilsService,
     private translateService: TranslocoService,
-    private toastService: ToastrService
+    private toastService: ToastrService,
+    private formUtilsService: FormUtilsService
   ) {}
 
   ngOnInit() {
@@ -56,7 +60,7 @@ export class MovieNewContainer implements OnInit, OnDestroy {
   createForm() {
     return this.fb.group({
       title: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      poster: new FormControl(null),
+      poster: new FormControl(null, [ValidateURL]),
       genre: new FormControl('', [Validators.required]),
       actors: new FormControl(null, Validators.required),
       year: new FormControl(null, Validators.required),

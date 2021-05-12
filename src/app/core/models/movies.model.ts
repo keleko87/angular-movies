@@ -13,4 +13,11 @@ export enum MovieGenre {
   COMEDY = 'Comedy',
   MUSICAL = 'Musical',
   ROMANCE = 'Romance',
+  SCI_FI = 'Sci-fi',
+  ACTION = 'Action',
+  ANIMATION = 'Animation',
+  HORROR = 'Horror',
+  THRILLER = 'Thriller',
+  WAR = 'war',
+  DRAMA = 'Drama',
 }
