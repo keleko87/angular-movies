@@ -1,0 +1,11 @@
+{
+  "page-title": "Nueva película",
+  "title": "Título",
+  "poster": "Poster (url)",
+  "genre": "Géneros",
+  "actors": "Actores",
+  "company": "Estudio",
+  "year": "Año",
+  "duration": "Duración",
+  "imdbRating": "Puntuación"
+}

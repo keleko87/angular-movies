@@ -38,6 +38,11 @@ body {
     }
   }
 
+  button {
+    cursor: pointer;
+    color: $gray-200;
+  }
+
   .mov {
     &--display-flex {
       display: flex;
@@ -49,6 +54,28 @@ body {
 
     &--align-items-center {
       align-items: center;
+    }
+
+    &__button {
+      background-color: $mandarine;
+      border: 2px solid $white;
+      color: $white;
+      border-radius: 30px;
+      font-size: 1.5rem;
+      padding: 12px 15px;
+
+      &:hover {
+        color: $gray-200;
+        border-color: $gray-200;
+      }
+
+      &--edit {
+        background-color: $green;
+      }
+
+      &--remove {
+        background-color: $red;
+      }
     }
   }
 }

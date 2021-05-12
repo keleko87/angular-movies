@@ -17,4 +17,11 @@
       margin: 1rem;
     }
   }
+
+  &__footer {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    margin: 2rem;
+  }
 }

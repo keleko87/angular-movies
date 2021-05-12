@@ -1,14 +1,21 @@
 <div class="mov-movies">
-  <div class="mov--display-flex mov--justify-content-center mov--align-items-center">
-    <ng-container *transloco="let t">
+  <ng-container *transloco="let t">
+    <div class="mov--display-flex mov--justify-content-center mov--align-items-center">
       <h1>{{ t('movies.title') }}</h1>
-    </ng-container>
-  </div>
-
-  <div *ngIf="movies$ | async as movies" class="mov-movies__list">
-    <div *ngFor="let movie of movies">
-      <app-card [title]="movie.title" [image]="movie.poster" [footerItems]="movie.genre">
-      </app-card>
     </div>
-  </div>
+
+    <div *ngIf="movies$ | async as movies" class="mov-movies__list">
+      <div *ngFor="let movie of movies">
+        <app-card [title]="movie.title" [image]="movie.poster" [footerItems]="movie.genre">
+        </app-card>
+      </div>
+    </div>
+
+    <!-- TODO Create shared component -->
+    <div class="mov-movies__footer">
+      <button [routerLink]="['/', routePath.MOVIES, routePath.NEW]" class="mov__button">
+        <em class="fas fa-plus"></em>
+      </button>
+    </div>
+  </ng-container>
 </div>
