@@ -11,6 +11,7 @@ import { FormUtilsService } from 'src/app/core/utils/form-utils.service';
 import { Translation, TranslocoService } from '@ngneat/transloco';
 import { ValidateURL } from 'src/app/core/validators/url.validator';
 import { Genres, MovieFormField } from 'src/app/core/constants/ movies.constants';
+import { actorList } from 'tests/fixtures/actors-fixture';
 
 @Component({
   selector: 'app-movie-new',
@@ -22,6 +23,14 @@ export class MovieNewContainer implements OnInit, OnDestroy {
   translations: Translation;
   genres: MovieGenre[] = Genres;
   movieFormField = MovieFormField;
+
+  // TODO Replace it when "actors" feature is finished
+  actors = [
+    ...actorList.map((actor) => ({
+      id: actor.id,
+      fullname: `${actor.first_name} ${actor.last_name}`,
+    })),
+  ];
 
   private subscriptions: Subscription = new Subscription();
 

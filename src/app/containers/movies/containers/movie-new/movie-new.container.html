@@ -22,7 +22,13 @@
 
       <div>
         <label for="actors" class="mov__label">{{ t('movieNew.form.actors') }} *</label>
-        <p-multiSelect display="chip" [options]="genres" formControlName="actors"> </p-multiSelect>
+        <p-multiSelect
+          optionLabel="fullname"
+          display="chip"
+          [options]="actors"
+          formControlName="actors"
+        >
+        </p-multiSelect>
       </div>
 
       <div>
