@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 import { RoutePath } from 'src/app/core/constants/routes.constants';
 import { Movie } from 'src/app/core/models/movies.model';
@@ -15,7 +16,10 @@ import { selectMoviesList } from './store/movies.selectors';
 export class MoviesContainer {
   routePath = RoutePath;
 
-  movies$: Observable<Movie[]> = this.store.select(selectMoviesList);
+  movies$: Observable<Movie[]> = this.store.select(selectMoviesList).pipe(
+    filter((movies: Movie[]) => movies.length > 0),
+    map((movies: Movie[]) => movies.slice().sort((a: Movie, b: Movie) => b.id - a.id))
+  );
 
   constructor(private store: Store) {}
 

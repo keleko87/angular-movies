@@ -12,6 +12,8 @@ import { Translation, TranslocoService } from '@ngneat/transloco';
 import { ValidateURL } from 'src/app/core/validators/url.validator';
 import { Genres, MovieFormField } from 'src/app/core/constants/movies.constants';
 import { actorList } from 'tests/fixtures/actors-fixture';
+import { NavMenuService } from 'src/app/core/services/nav-menu.service';
+import { RoutePath } from 'src/app/core/constants/routes.constants';
 
 @Component({
   selector: 'app-movie-new',
@@ -38,9 +40,10 @@ export class MovieNewContainer implements OnInit, OnDestroy {
     private store: Store,
     private actions$: Actions,
     private fb: FormBuilder,
+    private formUtilsService: FormUtilsService,
+    private navMenuService: NavMenuService,
     private translateService: TranslocoService,
-    private toastService: ToastrService,
-    private formUtilsService: FormUtilsService
+    private toastService: ToastrService
   ) {}
 
   ngOnInit() {
@@ -58,6 +61,7 @@ export class MovieNewContainer implements OnInit, OnDestroy {
       this.actions$.pipe(ofType(ActionTypes.CREATE_MOVIE_SUCCESS)).subscribe(
         (res: { payload: Movie }) => {
           this.createMovieSuccess(res);
+          this.navMenuService.navigateTo(RoutePath.MOVIES);
         },
         (err) => {
           this.toastService.error(err.message);
