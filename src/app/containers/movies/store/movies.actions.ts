@@ -50,5 +50,5 @@ export const requestDeleteMovie = createAction(
 
 export const deleteMovieSuccess = createAction(
   ActionTypes.DELETE_MOVIE_SUCCESS,
-  props<{ payload: string }>()
+  props<{ payload: {} }>()
 );

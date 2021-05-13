@@ -62,7 +62,7 @@ export class MoviesEffects {
       ofType(ActionTypes.REQUEST_DELETE_MOVIE),
       exhaustMap((action: { payload }) =>
         this.api.deleteMovie(action.payload).pipe(
-          map((res: string) => deleteMovieSuccess({ payload: res })),
+          map((res: {}) => deleteMovieSuccess({ payload: res })),
           catchError(() => EMPTY)
         )
       )

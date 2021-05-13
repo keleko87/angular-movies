@@ -38,7 +38,7 @@ export class MoviesApiService {
    * @returns Movie object updated
    */
   public updateMovie(body: Movie): Observable<Movie> {
-    return this.http.put<Movie>(`${this.API_MOVIE_PATH}`, body);
+    return this.http.put<Movie>(`${this.API_MOVIE_PATH}/${body.id}`, body);
   }
 
   /**
@@ -46,7 +46,7 @@ export class MoviesApiService {
    * @param id
    * @returns number: ID of movie deleted
    */
-  public deleteMovie(id: number): Observable<string> {
-    return this.http.delete<string>(`${this.API_MOVIE_PATH}/${id}`);
+  public deleteMovie(id: number): Observable<{}> {
+    return this.http.delete<{}>(`${this.API_MOVIE_PATH}/${id}`);
   }
 }

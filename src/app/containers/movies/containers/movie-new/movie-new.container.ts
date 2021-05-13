@@ -10,7 +10,7 @@ import { Movie, MovieGenre } from 'src/app/core/models/movies.model';
 import { FormUtilsService } from 'src/app/core/utils/form-utils.service';
 import { Translation, TranslocoService } from '@ngneat/transloco';
 import { ValidateURL } from 'src/app/core/validators/url.validator';
-import { Genres, MovieFormField } from 'src/app/core/constants/ movies.constants';
+import { Genres, MovieFormField } from 'src/app/core/constants/movies.constants';
 import { actorList } from 'tests/fixtures/actors-fixture';
 
 @Component({
