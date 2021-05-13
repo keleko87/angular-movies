@@ -7,6 +7,15 @@ import { NavMenuItem } from '../components/nav-menu/nav-menu.model';
 import { NavMenuService } from './nav-menu.service';
 
 describe('NavMenuService', () => {
+  const translationsMock: Translation = {
+    home: 'inicio',
+  };
+  const navMenu: NavMenuItem[] = [
+    {
+      label: translationsMock.home,
+      path: 'home',
+    },
+  ];
   let router: Router;
   let service: NavMenuService;
 
@@ -20,16 +29,6 @@ describe('NavMenuService', () => {
   });
 
   it('should set navigation menu when "setNavMenu" is called', () => {
-    const translationsMock: Translation = {
-      home: 'inicio',
-    };
-    const navMenu: NavMenuItem[] = [
-      {
-        label: translationsMock.home,
-        path: 'home',
-      },
-    ];
-
     const spy = spyOn(service, 'setNavMenu').and.callThrough();
     const menuMock: NavMenuItem[] = service.setNavMenu(translationsMock);
 

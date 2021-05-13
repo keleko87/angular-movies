@@ -71,8 +71,9 @@ describe('MovieNewContainer', () => {
     fixture.destroy();
   });
 
-  it('should create form on init', async () => {
+  it('should create form on init', () => {
     const form = component.form;
+    fixture.detectChanges();
 
     expect(form.controls).toBeTruthy();
     expect(form.controls.title).toBeDefined();
@@ -84,7 +85,7 @@ describe('MovieNewContainer', () => {
     expect(form.controls.imdbRating).toBeDefined();
   });
 
-  it('should validate form fields when click submit button', async () => {
+  it('should validate form fields when click submit button', () => {
     const submitFormSpy = spyOn(component, 'submitForm').and.callThrough();
 
     let button = fixture.debugElement.nativeElement.querySelector('button');
@@ -96,7 +97,7 @@ describe('MovieNewContainer', () => {
     });
   });
 
-  it('should dispatch #requestCreateMovie action when click submit button and form is valid', async () => {
+  it('should dispatch #requestCreateMovie action when click submit button and form is valid', () => {
     const submitFormSpy = spyOn(component, 'submitForm').and.callThrough();
 
     component.form.patchValue(formMockValues);
@@ -111,7 +112,7 @@ describe('MovieNewContainer', () => {
     });
   });
 
-  it('should show SUCCESS message when action subscription emit OK response', async () => {
+  it('should show SUCCESS message when action subscription emit OK response', () => {
     component.form.patchValue(formMockValues);
     fixture.detectChanges();
 

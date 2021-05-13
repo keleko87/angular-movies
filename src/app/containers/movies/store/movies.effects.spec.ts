@@ -15,7 +15,7 @@ describe('Store > Data > MoviesEffects', () => {
   let dataService;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       providers: [
         MoviesEffects,
         provideMockStore(),

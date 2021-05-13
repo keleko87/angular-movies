@@ -7,7 +7,7 @@ import {
 import { getTestBed, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { LoaderService } from '../../services/loader/loader.service';
+import { LoaderService } from '../../services/loader.service';
 import { LoaderInterceptorService } from './loader-interceptor.service';
 import { ApiMockService, BASE_PATH } from 'tests/mocks/api-mock.service';
 
