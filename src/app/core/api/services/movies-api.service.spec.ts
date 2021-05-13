@@ -6,11 +6,11 @@ import { movieList } from 'tests/fixtures/movies-fixture';
 import { HttpVerbs } from 'tests/mocks/api-mock.service';
 import { Movie } from '../../models/movies.model';
 
-let injector: TestBed;
-let service: MoviesApiService;
-let httpMock: HttpTestingController;
-
 describe('MoviesApiService', () => {
+  let injector: TestBed;
+  let service: MoviesApiService;
+  let httpMock: HttpTestingController;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
@@ -26,13 +26,7 @@ describe('MoviesApiService', () => {
     httpMock.verify();
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
-
-describe('#getMovies', () => {
-  it('should return an Observable<Movie[]>', () => {
+  it('should return an Observable<Movie[]> when call #getMovies', () => {
     service.getMovies().subscribe((movies: Movie[]) => {
       expect(movies).toEqual(movieList);
     });
@@ -41,10 +35,8 @@ describe('#getMovies', () => {
     expect(req.request.method).toBe(HttpVerbs.GET);
     req.flush(movieList);
   });
-});
 
-describe('#createMovie', () => {
-  it('should receive a <Movie> as a req body and return an Observable<Movie>', () => {
+  it('should receive a <Movie> as a req body and return an Observable<Movie> when call #createMovie', () => {
     service.createMovie(movieList[0]).subscribe((movie: Movie) => {
       expect(movie).toEqual(movieList[0]);
     });
@@ -53,10 +45,8 @@ describe('#createMovie', () => {
     expect(req.request.method).toBe(HttpVerbs.POST);
     req.flush(movieList[0]);
   });
-});
 
-describe('#updateMovie', () => {
-  it('should receive a type <Movie> as a req body and return an Observable<Movie>', () => {
+  it('should receive a type <Movie> as a req body and return an Observable<Movie> when call #updateMovie', () => {
     service.updateMovie(movieList[0]).subscribe((movies: Movie) => {
       expect(movies).toEqual(movieList[0]);
     });
@@ -65,10 +55,8 @@ describe('#updateMovie', () => {
     expect(req.request.method).toBe(HttpVerbs.PUT);
     req.flush(movieList[0]);
   });
-});
 
-describe('#deleteMovie', () => {
-  it('should receive a "id" movie as a param and return an Observable<{}>', () => {
+  it('should receive a "id" movie as a param and return an Observable<{}> when call #deleteMovie', () => {
     service.deleteMovie(movieList[0].id).subscribe((res) => {
       expect(res).toEqual(movieList[0].id);
     });

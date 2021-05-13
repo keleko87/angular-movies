@@ -87,11 +87,11 @@ export class MovieNewContainer implements OnInit, OnDestroy {
   }
 
   createMovieSuccess(res: { payload }) {
-    if (!res.payload) {
-      this.toastService.error(res.payload);
+    if (!res) {
+      this.toastService.error(this.translations.movieCreatedError);
     } else {
-      this.toastService.success(res.payload.title, this.translations.movieCreatedSuccess);
       this.form.reset();
+      this.toastService.success(res.payload.title, this.translations.movieCreatedSuccess);
     }
   }
 

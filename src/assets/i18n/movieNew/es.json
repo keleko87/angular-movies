@@ -10,6 +10,7 @@
     "imdbRating": "Puntuación"
   },
   "message": {
-    "movieCreatedSuccess": "Película creada correctamente"
+    "movieCreatedSuccess": "Película creada correctamente",
+    "movieCreatedError": "Error al crear la película"
   }
 }

@@ -9,11 +9,12 @@ import { LoaderInterceptorService } from './interceptors/loader-interceptor/load
 import { ErrorInterceptorService } from './interceptors/error-interceptor/error-interceptor.service';
 import { environment } from 'src/environments/environment';
 import { CoreEffects } from './store/core.effects';
+import { LoaderComponent } from './components/loader/loader.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import * as coreReducer from './store/core.reducer';
 
 @NgModule({
-  declarations: [NavMenuComponent],
+  declarations: [NavMenuComponent, LoaderComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -36,6 +37,6 @@ import * as coreReducer from './store/core.reducer';
       multi: true,
     },
   ],
-  exports: [NavMenuComponent],
+  exports: [NavMenuComponent, LoaderComponent],
 })
 export class CoreModule {}

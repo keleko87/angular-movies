@@ -1,9 +1,8 @@
-import { Action } from '@ngrx/store';
-import { Subject } from 'rxjs';
+import { Action, ActionsSubject } from '@ngrx/store';
 
 const MOCK_ACTION = '[MOCK] ACTION';
 
-export const MockActions = new Subject();
+export const MockActions = new ActionsSubject();
 
 export class MockAction implements Action {
   readonly type = MOCK_ACTION;
