@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NavMenuService } from '../../services/nav-menu.service';
 import { NavMenu } from './nav-menu.model';
 
@@ -8,7 +8,14 @@ import { NavMenu } from './nav-menu.model';
   styleUrls: ['./nav-menu.component.scss'],
 })
 export class NavMenuComponent {
+  @ViewChild('toggleIcon') toggleIcon: ElementRef<HTMLElement>;
+
   @Input() config: NavMenu;
 
-  constructor(public navMenuService: NavMenuService) {}
+  constructor(private navMenuService: NavMenuService) {}
+
+  navigateTo(path: string) {
+    this.toggleIcon.nativeElement.click();
+    this.navMenuService.navigateTo(path);
+  }
 }

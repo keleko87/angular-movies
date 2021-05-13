@@ -1,6 +1,19 @@
 @import 'src/styles/colors.scss';
 @import 'src/styles/variables.scss';
 
+$sidebar-width: 250px;
+$icon-part-deg-rotate: 135deg;
+
+@mixin common-transition {
+  transition: all 0.3s;
+}
+
+@mixin icon-parts {
+  @include common-transition;
+  position: relative;
+  float: left;
+}
+
 .mov-nav-menu {
   &__header {
     display: block;
@@ -29,7 +42,7 @@
   }
 
   &__sidebar-icon {
-    transition: all 0.3s;
+    @include common-transition;
     cursor: pointer;
     position: fixed;
     z-index: 99;
@@ -47,9 +60,9 @@
     position: fixed;
     left: 0;
     z-index: 1;
-    width: 250px;
+    width: $sidebar-width;
     margin-top: $nav-menu--height;
-    transform: translateX(-250px);
+    transform: translateX(-#{$sidebar-width});
     transition: transform 250ms ease-in-out;
   }
 
@@ -60,35 +73,25 @@
   }
 
   &__spinner {
-    transition: all 0.3s;
+    @include common-transition;
     position: absolute;
     height: 3px;
     width: 100%;
     background-color: $white;
   }
 
-  &--horizontal {
-    transition: all 0.3s;
-    position: relative;
-    float: left;
+  &--horizontal,
+  &--diagonal-part-2 {
+    @include icon-parts;
     margin-top: 3px;
   }
 
   &--diagonal-part-1 {
-    position: relative;
-    transition: all 0.3s;
-    float: left;
-  }
-
-  &--diagonal-part-2 {
-    transition: all 0.3s;
-    position: relative;
-    float: left;
-    margin-top: 3px;
+    @include icon-parts;
   }
 
   input[type='checkbox'] {
-    transition: all 0.3s;
+    @include common-transition;
     display: none;
 
     &:checked {
@@ -98,17 +101,17 @@
 
       & ~ .mov-nav-menu__sidebar-icon {
         & > .mov-nav-menu--horizontal {
-          transition: all 0.3s;
+          @include common-transition;
           opacity: 0;
         }
         & > .mov-nav-menu--diagonal-part-1 {
-          transition: all 0.3s;
-          transform: rotate(135deg);
+          @include common-transition;
+          transform: rotate(#{$icon-part-deg-rotate});
           margin-top: 8px;
         }
         & > .mov-nav-menu--diagonal-part-2 {
-          transition: all 0.3s;
-          transform: rotate(-135deg);
+          @include common-transition;
+          transform: rotate(-#{$icon-part-deg-rotate});
           margin-top: -9px;
         }
       }
