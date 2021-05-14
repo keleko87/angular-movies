@@ -5,10 +5,14 @@
     </h4>
   </div>
   <div class="mov-card__image">
-    <img *ngIf="image; else defaultImg" [src]="image" alt="image" />
-    <ng-template #defaultImg>
-      <img src="../../../../assets/img/default-image-card.png" alt="default image" />
-    </ng-template>
+    <img
+      loading="lazy"
+      [src]="imageSrc"
+      [ngStyle]="{ visibility: isLoading ? 'hidden' : '' }"
+      (load)="hideLoader()"
+      (error)="setDefaultImage()"
+      alt="image"
+    />
   </div>
   <div class="mov-card__footer">
     <small *ngFor="let item of footerItems" class="mov-card__item">
