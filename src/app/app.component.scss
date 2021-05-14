@@ -2,14 +2,14 @@
 @import '../styles/variables.scss';
 
 .mov-app {
-  background-color: $gray-800;
   box-sizing: border-box;
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 16px;
   font-style: normal;
-  height: 100vh;
 
   &__router {
+    background-color: $gray-800;
+    min-height: calc(100vh - #{$nav-menu--height});
     position: relative;
     top: $nav-menu--height;
   }

@@ -5,24 +5,29 @@
   border-radius: 5px;
 }
 
-$card-min-height: 295px;
-$footer-height: 57px;
 $card-padding: 1rem;
-$image-size: calc(#{$card-min-height} - (#{$card-padding} * 2));
+$card-max-width: 400px;
+$footer-height: 30px;
+$image-container-size: 280px;
 
 .mov-card {
   @include border-radius;
   background-color: $gray-600;
   border: 1px solid $gray-800;
   padding: $card-padding;
+  max-width: $card-max-width;
+
+  @media (max-width: #{$media-sm}) {
+    margin: 0 auto;
+  }
 
   &__image {
     margin: 0.75rem 0;
     overflow: hidden;
-    height: $image-size;
+    height: $image-container-size;
 
     img {
-      height: 100%; // auto
+      height: 100%; // auto: for responsive image
       width: 100%;
       vertical-align: middle;
     }
@@ -33,11 +38,12 @@ $image-size: calc(#{$card-min-height} - (#{$card-padding} * 2));
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    overflow: hidden;
   }
 
   &__item {
     @include border-radius;
-    background-color: $mandarine;
+    background-color: $purple;
     color: $black;
     padding: 0.25rem 0.5rem;
     margin: 0.25rem;

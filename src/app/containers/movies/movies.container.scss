@@ -2,19 +2,16 @@
 @import 'src/styles/variables.scss';
 
 .mov-movies {
-  background-color: $gray-800;
-  padding: 2rem 0 4rem;
-
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1rem;
     align-items: center;
-    margin: 3rem;
+    padding: 1rem 3rem 6rem 3rem;
 
     @media (max-width: #{$media-xs}) {
       grid-template-columns: repeat(auto-fit, 100%);
-      margin: 1rem;
+      padding: 1rem 1rem 6rem 1rem;
     }
   }
 

@@ -2,7 +2,6 @@
 @import 'src/styles/variables.scss';
 
 .mov-movie-new {
-  padding: 2rem 0 4rem;
   margin: 0 3rem;
   max-width: $media-lg;
 
@@ -22,7 +21,7 @@
 
   &__form-group {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(#{$grid-minmax-width}, 1fr));
   }
 
   &__field {
