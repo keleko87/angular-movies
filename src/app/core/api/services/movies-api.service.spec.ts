@@ -18,8 +18,8 @@ describe('MoviesApiService', () => {
     });
 
     injector = getTestBed();
-    service = TestBed.inject(MoviesApiService);
-    httpMock = TestBed.inject(HttpTestingController);
+    service = injector.inject(MoviesApiService);
+    httpMock = injector.inject(HttpTestingController);
   });
 
   afterEach(() => {

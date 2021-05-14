@@ -16,6 +16,8 @@ import { FormUtilsService } from 'src/app/core/utils/form-utils.service';
 import { FormUtilsMock } from 'tests/mocks/form-utils-mock';
 import { ActionTypes } from '../../store/movies.actions';
 import { ToastrMock } from 'tests/mocks/toastr-mock.service';
+import { NavMenuService } from 'src/app/core/services/nav-menu.service';
+import { NavMenuMockService } from 'tests/mocks/nav-menu-mock';
 
 const formMockValues = {
   title: 'Movie 1',
@@ -48,8 +50,9 @@ describe('MovieNewContainer', () => {
         StoreModule.forFeature(movieKey, reducer),
       ],
       providers: [
-        { provide: FormUtilsService, useValue: FormUtilsMock },
+        { provide: NavMenuService, useClass: NavMenuMockService },
         { provide: Store, useClass: MockStore },
+        { provide: FormUtilsService, useValue: FormUtilsMock },
         { provide: Actions, useValue: MockActions },
         { provide: ToastrService, useValue: ToastrMock },
       ],
