@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 
 import { Movie } from '../../models/movies.model';
+import { Pagination } from 'src/app/containers/movies/store/movies.reducer';
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +16,19 @@ export class MoviesApiService {
 
   /**
    * Get movies list
-   * @returns Movie[]
+   * @returns Http
    */
-  public getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(`${this.API_MOVIE_PATH}`).pipe(share());
+  public getMovies(pag: Pagination): Observable<HttpResponse<{ total: number; body: any }>> {
+    let params = new HttpParams();
+    params = pag?.page ? params.set('_page', pag.page.toString()) : params;
+    params = pag?.limit ? params.set('_limit', pag.limit.toString()) : params;
+
+    return this.http
+      .get<{ total: number; body: any }>(`${this.API_MOVIE_PATH}`, {
+        params,
+        observe: 'response',
+      })
+      .pipe(share());
   }
 
   /**

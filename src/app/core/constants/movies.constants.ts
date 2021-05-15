@@ -19,3 +19,8 @@ export const MovieFormField = {
   RATING_MAXLENGTH: 4,
   MIN_FRACTION_DIGITS: 2,
 };
+
+export const DefaultPagination = {
+  PAGE: 1,
+  LIMIT: 10,
+};

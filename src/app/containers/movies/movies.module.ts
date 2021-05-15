@@ -6,12 +6,13 @@ import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco';
 
 import { MoviesContainer } from './movies.container';
 import { CardComponent } from 'src/app/shared/components/card/card.component';
+import { PaginatorComponent } from 'src/app/shared/components/paginator/paginator.component';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesEffects } from './store/movies.effects';
 import { reducer, movieKey } from './store/movies.reducer';
 
 @NgModule({
-  declarations: [MoviesContainer, CardComponent],
+  declarations: [MoviesContainer, CardComponent, PaginatorComponent],
   imports: [
     CommonModule,
     MoviesRoutingModule,

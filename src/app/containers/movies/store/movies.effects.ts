@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, exhaustMap, map } from 'rxjs/operators';
+import { catchError, concatMap, exhaustMap, map, switchMap } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 
 import { MoviesApiService } from 'src/app/core/api/services/movies-api.service';
@@ -9,7 +9,6 @@ import {
   ActionTypes,
   createMovieSuccess,
   deleteMovieSuccess,
-  setMovies,
   updateMovieSuccess,
 } from './movies.actions';
 
@@ -21,9 +20,16 @@ export class MoviesEffects {
   requestMovies$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ActionTypes.REQUEST_MOVIES),
-      exhaustMap(() =>
-        this.api.getMovies().pipe(
-          map((res: Movie[]) => setMovies({ payload: res })),
+      concatMap((action: { payload }) =>
+        this.api.getMovies(action.payload).pipe(
+          map((res) => ({
+            total: Number(res.headers.get('X-Total-Count')),
+            body: res.body,
+          })),
+          switchMap(({ total, body }) => [
+            { type: ActionTypes.SET_TOTAL_MOVIES, payload: total },
+            { type: ActionTypes.MOVIES_SUCCESS, payload: body },
+          ]),
           catchError(() => EMPTY)
         )
       )

@@ -4,12 +4,25 @@
       <h1>{{ t('movies.title') }}</h1>
     </div>
 
-    <div *ngIf="movies$ | async as movies" class="mov-movies__list">
-      <div *ngFor="let movie of movies">
-        <app-card [title]="movie.title" [image]="movie.poster" [footerItems]="movie.genre">
-        </app-card>
+    <ng-container *ngIf="movies$ | async as movies">
+      <div *ngIf="pagination$ | async as pagination" class="mov-movies__paginator">
+        <app-paginator
+          [total]="totalMovies$ | async"
+          [page]="pagination.page"
+          [perPage]="pagination.limit"
+          (prev)="getMovies(page - 1)"
+          (next)="getMovies(page + 1)"
+        >
+        </app-paginator>
       </div>
-    </div>
+
+      <div class="mov-movies__list">
+        <div *ngFor="let movie of movies">
+          <app-card [title]="movie.title" [image]="movie.poster" [footerItems]="movie.genre">
+          </app-card>
+        </div>
+      </div>
+    </ng-container>
 
     <!-- TODO Create shared component -->
     <div class="mov-movies__footer">
