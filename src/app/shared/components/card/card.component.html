@@ -1,0 +1,23 @@
+<div class="mov-card">
+  <div class="mov-card__header">
+    <h4 class="mov-card__name mov-card__text--overflow" [title]="title">
+      {{ title }}
+    </h4>
+  </div>
+  <div class="mov-card__image">
+    <img
+      loading="lazy"
+      [src]="imageSrc"
+      [ngStyle]="{ visibility: isLoading ? 'hidden' : '' }"
+      (load)="hideLoader()"
+      (error)="setDefaultImage()"
+      class="mov__image"
+      alt="image"
+    />
+  </div>
+  <div class="mov-card__footer">
+    <small *ngFor="let item of footerItems" class="mov-card__item">
+      {{ item }}
+    </small>
+  </div>
+</div>

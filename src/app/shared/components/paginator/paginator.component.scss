@@ -1,0 +1,17 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/variables.scss';
+
+.mov-paginator {
+  display: flex;
+  justify-content: center;
+
+  &__action {
+    margin: 1rem 0.5rem;
+  }
+
+  &--disabled {
+    cursor: none;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}

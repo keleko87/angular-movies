@@ -1,0 +1,78 @@
+<div class="mov-movie-new">
+  <ng-container *transloco="let t">
+    <div class="mov--display-flex mov--justify-content-center mov--align-items-center">
+      <h1>{{ t('movieNew.pageTitle') }}</h1>
+    </div>
+
+    <form [formGroup]="form" class="mov-movie-new__form">
+      <div class="mov-movie-new__form-group">
+        <div class="mov-movie-new__field">
+          <label for="title" class="mov__label">{{ t('movieNew.form.title') }} *</label>
+          <input pInputText type="text" formControlName="title" />
+        </div>
+
+        <div class="mov-movie-new__field">
+          <label for="poster" class="mov__label">{{ t('movieNew.form.poster') }}</label>
+          <input pInputText type="url" formControlName="poster" />
+        </div>
+      </div>
+
+      <div class="mov-movie-new__form-group">
+        <div class="mov-movie-new__field">
+          <label for="genre" class="mov__label">{{ t('movieNew.form.genre') }} *</label>
+          <p-multiSelect display="chip" [options]="genres" formControlName="genre"> </p-multiSelect>
+        </div>
+
+        <div class="mov-movie-new__field">
+          <label for="actors" class="mov__label">{{ t('movieNew.form.actors') }} *</label>
+          <p-multiSelect
+            optionLabel="fullname"
+            display="chip"
+            [options]="actors"
+            formControlName="actors"
+          >
+          </p-multiSelect>
+        </div>
+      </div>
+
+      <div class="mov-movie-new__form-group">
+        <div class="mov-movie-new__field">
+          <label for="year" class="mov__label">{{ t('movieNew.form.year') }} *</label>
+          <p-inputNumber
+            [useGrouping]="false"
+            [maxlength]="movieFormField.YEAR_MAXLENGTH"
+            formControlName="year"
+          >
+          </p-inputNumber>
+        </div>
+
+        <div class="mov-movie-new__field">
+          <label for="duration" class="mov__label">{{ t('movieNew.form.duration') }} *</label>
+          <p-inputNumber
+            [useGrouping]="false"
+            [maxlength]="movieFormField.DURATION_MAXLENTH"
+            formControlName="duration"
+          >
+          </p-inputNumber>
+        </div>
+
+        <div class="mov-movie-new__field">
+          <label for="imdbRating" class="mov__label">{{ t('movieNew.form.imdbRating') }}</label>
+          <p-inputNumber
+            mode="decimal"
+            [minFractionDigits]="movieFormField.MIN_FRACTION_DIGITS"
+            [maxlength]="movieFormField.RATING_MAXLENGTH"
+            formControlName="imdbRating"
+          >
+          </p-inputNumber>
+        </div>
+      </div>
+
+      <div class="mov-movie-new__submit mov--display-flex mov--justify-content-center">
+        <div>
+          <button type="button" class="mov__button" (click)="submitForm()">{{ t('submit')}}</button>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</div>

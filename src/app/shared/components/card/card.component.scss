@@ -1,0 +1,64 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/variables.scss';
+
+@mixin border-radius {
+  border-radius: 5px;
+}
+
+$card-padding: 1rem;
+$card-max-width: 400px;
+$footer-height: 30px;
+$image-container-size: 280px;
+
+.mov-card {
+  @include border-radius;
+  background-color: $gray-600;
+  border: 1px solid $gray-800;
+  padding: $card-padding;
+  max-width: $card-max-width;
+
+  @media (max-width: #{$media-sm}) {
+    margin: 0 auto;
+  }
+
+  &__image {
+    margin: 0.75rem 0;
+    overflow: hidden;
+    height: $image-container-size;
+
+    img {
+      height: 100%; // auto: for responsive image
+      width: 100%;
+      vertical-align: middle;
+    }
+  }
+
+  &__footer {
+    height: $footer-height;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+
+  &__item {
+    @include border-radius;
+    background-color: $purple;
+    color: $black;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+  }
+
+  &__name,
+  &__type {
+    margin: 0 0 0.25rem 0;
+  }
+
+  &__text {
+    &--overflow {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

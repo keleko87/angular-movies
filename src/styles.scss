@@ -4,6 +4,8 @@
 
 @import '~ngx-toastr/toastr';
 
+@import '../src/styles/components/primeng/form';
+
 body {
   margin: 0;
   padding: 0;
@@ -34,7 +36,7 @@ body {
     text-decoration: none;
 
     &:hover {
-      color: $mandarine;
+      color: $purple;
     }
   }
 
@@ -49,6 +51,29 @@ body {
 
     &--align-items-center {
       align-items: center;
+    }
+
+    &__label {
+      font-size: 1.25rem;
+      color: $gray-200;
+    }
+
+    &__button {
+      background-color: $mandarine;
+      border: 2px solid $mandarine;
+      color: $black;
+      border-radius: 30px;
+      font-size: 1.5rem;
+      padding: 12px 15px;
+      cursor: pointer;
+
+      &--edit {
+        background-color: $green;
+      }
+
+      &--remove {
+        background-color: $red;
+      }
     }
   }
 }

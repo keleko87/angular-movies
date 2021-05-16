@@ -4,6 +4,14 @@ import { Observable } from 'rxjs';
 
 export const BASE_PATH = 'https://jsonplaceholder.typicode.com';
 
+export const HttpVerbs = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  PATCH: 'PATCH',
+  DELETE: 'DELETE',
+};
+
 @Injectable({
   providedIn: 'root',
 })
