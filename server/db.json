@@ -99,6 +99,130 @@
       "duration": 73,
       "imdbRating": 4.39,
       "actors": [6, 9, 11]
+    },
+    {
+      "title": "Braveheart",
+      "poster": "https://poster.com",
+      "genre": [
+        "Comedy",
+        "Musical",
+        "Romance",
+        "Sci-fi",
+        "Action",
+        "Animation",
+        "Horror",
+        "Thriller",
+        "War",
+        "Drama"
+      ],
+      "actors": [
+        {
+          "id": 2,
+          "fullname": "Rory Chanders"
+        },
+        {
+          "id": 3,
+          "fullname": "Lew Meehan"
+        },
+        {
+          "id": 4,
+          "fullname": "Marci Noads"
+        }
+      ],
+      "year": 1996,
+      "duration": 160,
+      "imdbRating": 5.23,
+      "id": 11
+    },
+    {
+      "id": 12,
+      "title": "Pulp Fiction",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Comedy", "Musical", "Romance"],
+      "year": 2006,
+      "duration": 161,
+      "imdbRating": 8.27,
+      "actors": [4, 5, 6]
+    },
+    {
+      "id": 13,
+      "title": "Kill Bill",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Comedy", "Musical", "Romance"],
+      "year": 2006,
+      "duration": 161,
+      "imdbRating": 8.27,
+      "actors": [4, 5, 6]
+    },
+    {
+      "id": 14,
+      "title": "Dirty dance",
+      "poster": null,
+      "genre": ["Comedy", "Musical", "Romance"],
+      "year": 2006,
+      "duration": 161,
+      "imdbRating": 8.27,
+      "actors": [4, 5, 6]
+    },
+    {
+      "id": 15,
+      "title": "Troya",
+      "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
+      "genre": ["Comedy", "Musical", "Romance"],
+      "year": 2006,
+      "duration": 161,
+      "imdbRating": 8.27,
+      "actors": [4, 5, 6]
+    },
+    {
+      "id": 16,
+      "title": "Rey Arturo",
+      "poster": null,
+      "genre": ["Comedy", "Musical", "Romance"],
+      "year": 2006,
+      "duration": 161,
+      "imdbRating": 8.27,
+      "actors": [4, 5, 6]
+    },
+    {
+      "id": 17,
+      "title": "Jurassic Park",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Comedy", "Musical", "Romance"],
+      "year": 2006,
+      "duration": 161,
+      "imdbRating": 8.27,
+      "actors": [4, 5, 6]
+    },
+    {
+      "id": 18,
+      "title": "Fast Furious",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Comedy", "Musical"],
+      "year": 2006,
+      "duration": 161,
+      "imdbRating": 8.27,
+      "actors": [4, 5, 6]
+    },
+    {
+      "id": 19,
+      "title": "Odiosos 8",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Comedy", "Musical"],
+      "year": 2006,
+      "duration": 161,
+      "imdbRating": 8.27,
+      "actors": [4, 5, 6]
+    },
+    {
+      "id": 18,
+      "title": "Malditos Bastardos",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Comedy", "Musical"],
+      "year": 2006,
+      "duration": 161,
+      "imdbRating": 8.27,
+      "actors": [4, 5, 6]
     }
   ],
   "actors": [
