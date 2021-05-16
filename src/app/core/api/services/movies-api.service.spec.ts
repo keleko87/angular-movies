@@ -5,6 +5,7 @@ import { MoviesApiService } from './movies-api.service';
 import { movieList } from 'tests/fixtures/movies-fixture';
 import { HttpVerbs } from 'tests/mocks/api-mock.service';
 import { Movie } from '../../models/movies.model';
+import { PaginationMock } from 'tests/mocks/pagination-mock';
 
 describe('MoviesApiService', () => {
   let injector: TestBed;
@@ -27,11 +28,14 @@ describe('MoviesApiService', () => {
   });
 
   it('should return an Observable<Movie[]> when call #getMovies', () => {
-    service.getMovies().subscribe((movies: Movie[]) => {
-      expect(movies).toEqual(movieList);
+    service.getMovies(PaginationMock).subscribe((res) => {
+      expect(res.headers).toBeDefined();
+      expect(res.body).toBeDefined();
     });
 
-    const req = httpMock.expectOne(`${service.API_MOVIE_PATH}`);
+    const req = httpMock.expectOne(
+      `${service.API_MOVIE_PATH}?_page=${PaginationMock.page}&_limit=${PaginationMock.limit}`
+    );
     expect(req.request.method).toBe(HttpVerbs.GET);
     req.flush(movieList);
   });

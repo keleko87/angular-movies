@@ -43,7 +43,7 @@ describe('Store > Data > MoviesEffects', () => {
 
     effects.requestMovies$.subscribe((action) => {
       expect(action.type).toBe(ActionTypes.SET_MOVIES);
-      expect(action.payload).toEqual(movieList);
+      expect(action.payload).toEqual({ total: movieList.length, body: movieList });
     });
   });
 

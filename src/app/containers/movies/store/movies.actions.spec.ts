@@ -1,21 +1,24 @@
 import { createMovieSuccess, requestCreateMovie, requestMovies, setMovies } from './movies.actions';
 import { ActionTypes } from './movies.actions';
 import { movieList } from '../../../../../tests/fixtures/movies-fixture';
+import { PaginationMock } from 'tests/mocks/pagination-mock';
+
+const payloadMock = { page: PaginationMock.page, list: movieList };
 
 describe('RequestMovies', () => {
   it('should create an action', () => {
-    const action = requestMovies();
-    expect(action).toEqual({ type: ActionTypes.REQUEST_MOVIES });
+    const action = requestMovies({ payload: PaginationMock });
+    expect(action.type).toEqual(ActionTypes.REQUEST_MOVIES);
   });
 });
 
 describe('SetMovies', () => {
   it('should create an action', () => {
-    const action = setMovies({ payload: movieList });
+    const action = setMovies({ payload: payloadMock });
 
     expect({ ...action }).toEqual({
       type: ActionTypes.SET_MOVIES,
-      payload: movieList,
+      payload: payloadMock,
     });
   });
 });

@@ -18,7 +18,12 @@
 
       <div class="mov-movies__list">
         <div *ngFor="let movie of movies">
-          <app-card [title]="movie.title" [image]="movie.poster" [footerItems]="movie.genre">
+          <app-card
+            class="mov-movies__item-list"
+            [title]="movie?.title"
+            [image]="movie?.poster"
+            [footerItems]="movie?.genre"
+          >
           </app-card>
         </div>
       </div>

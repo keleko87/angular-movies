@@ -2,7 +2,7 @@
   <div class="mov-paginator__action">
     <button
       [ngClass]="{ 'mov-paginator--disabled': !showPrev }"
-      class="mov__button"
+      class="mov__button mov-paginator__prev"
       aria-label="prev"
       (click)="goPrev()"
     >
@@ -12,7 +12,7 @@
   <div class="mov-paginator__action">
     <button
       [ngClass]="{ 'mov-paginator--disabled': !showNext }"
-      class="mov__button"
+      class="mov__button mov-paginator__next"
       aria-label="next"
       (click)="goNext()"
     >

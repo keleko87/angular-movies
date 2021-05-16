@@ -1,6 +1,7 @@
 import { Movie } from 'src/app/core/models/movies.model';
+import { PaginationMock } from 'tests/mocks/pagination-mock';
 import { MovieState } from './movies.reducer';
-import { selectMoviesList } from './movies.selectors';
+import { selectMoviesList, selectNumTotalMovies, selectPagination } from './movies.selectors';
 
 const createMovie = ({
   id = 0,
@@ -24,28 +25,55 @@ const createMovie = ({
 
 const createMovieState = ({
   list = [
-    createMovie({
-      id: 1,
-      title: 'Braveheart',
-      poster: '',
-      genre: ['Drama'],
-      year: 1996,
-      duration: 200,
-      imdbRating: 4.5,
-      actors: [],
-    }),
+    null,
+    [
+      createMovie({
+        id: 1,
+        title: 'Braveheart',
+        poster: '',
+        genre: ['Drama'],
+        year: 1996,
+        duration: 200,
+        imdbRating: 4.5,
+        actors: [],
+      }),
+    ],
   ],
 } = {}) => ({
   list,
 });
 
-const createState = ({ list = createMovieState() } = {}): MovieState => ({
+const createTotalState = ({ total = 10 } = {}) => ({
+  total,
+});
+
+const createPaginationState = ({ pagination = PaginationMock } = {}) => ({
+  pagination,
+});
+
+const createState = ({
+  list = createMovieState(),
+  total = createTotalState(),
+  pagination = createPaginationState(),
+} = {}): MovieState => ({
   ...list,
+  ...total,
+  ...pagination,
 });
 
 describe('Store > Movies > Selectors', () => {
   it('selectMoviesList', () => {
     const state = createState();
     expect(selectMoviesList.projector(state)).toBe(state.list);
+  });
+
+  it('selectNumTotalMovies', () => {
+    const state = createState();
+    expect(selectNumTotalMovies.projector(state)).toBe(state.total);
+  });
+
+  it('selectPagination', () => {
+    const state = createState();
+    expect(selectPagination.projector(state)).toBe(state.pagination);
   });
 });
